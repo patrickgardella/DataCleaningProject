@@ -69,19 +69,19 @@ test <- cbind(SubjectsTest,Ytest,Xtest)
 #
 
 # Combine all the test and train data into one data frame by adding the rows together using rbind
-all <- rbind(test,train)
+allData <- rbind(test,train)
 
 #
 # Extract only the measurements that deal with the mean and standard deviation for the measurements
 #
 
 info <- c(1,3) #The informational columns - subject and description of activity
-justmean <- grep("mean(", names(all), fixed = TRUE) # Find all columns with the Mean 
-juststd <- grep("std", names(all), fixed = TRUE) # Find all columns with the Standard Deviation
+justmean <- grep("-mean()", names(allData), fixed = TRUE) # Find all columns with the Mean 
+juststd <- grep("-std()", names(allData), fixed = TRUE) # Find all columns with the Standard Deviation
 neededcolumns <- c(info, justmean, juststd) # Combine previous lists to get list of all the columns we need (general, Mean and STD)
 
 # Create the smaller data set with only the means and standard deviations.
-allSmall <- all[, neededcolumns]
+allSmall <- allData[, neededcolumns]
 
 # Cleanup unneeded variables from environment
 rm(activities, SubjectsTrain,Ytrain,Xtrain, SubjectsTest,Ytest,Xtest,activitynames, tmp, test, train, info, justmean,juststd, neededcolumns, labels)
@@ -96,7 +96,7 @@ names(allSmall) <- gsub("mean","Mean",names(allSmall))
 names(allSmall) <- gsub("std","StandardDeviation",names(allSmall))
 names(allSmall) <- gsub("[()]","",names(allSmall))
 names(allSmall) <- gsub("Acc","Accelerometer",names(allSmall))
-names(allSmall) <- gsub("Gyro","Gyrometer",names(allSmall))
+names(allSmall) <- gsub("Gyro","Gyroscope",names(allSmall))
 names(allSmall) <- gsub("Mag","Magnitude",names(allSmall))
 names(allSmall) <- gsub("([XYZ])$","\\1Axis",names(allSmall))
 
@@ -106,9 +106,12 @@ names(allSmall) <- gsub("([XYZ])$","\\1Axis",names(allSmall))
 
 # Ideas from http://tgmstat.wordpress.com/2013/10/31/reshape-and-aggregate-data-with-the-r-package-reshape2/
 molten = melt(allSmall, id = c("Person", "ActivityDescription"))
-averages <- dcast(molten, formula = Person + ActivityDescription  ~ variable, mean)
+tidyDataset <- dcast(molten, formula = Person + ActivityDescription  ~ variable, mean)
 
 # Remove working data from environment
-rm(molten, all)
+rm(molten, allData, allSmall)
 
-write.table(averages,"./data/UCI-HAR-Averages.txt")
+write.table(tidyDataset,"./data/UCI-HAR-Averages.txt")
+
+#listOfVariables <- data.frame(names(tidyDataset))
+#write.csv(listOfVariables,"listOfVariables.csv")

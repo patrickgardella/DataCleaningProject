@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=9" >
+
+<title>Codebook</title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+
+
+
+
+</head>
+
+<body>
+<h1>Codebook</h1>
+
+<h2>Original Dataset</h2>
+
+<p>The original source of the data for this project is taken from the Human Activity Recognition Using Smartphones Dataset Version 1.0 as compiled by:</p>
+
+<blockquote>
+<p>Jorge L. Reyes-Ortiz, Davide Anguita, Alessandro Ghio, Luca Oneto.
+Smartlab - Non Linear Complex Systems Laboratory
+DITEN - Universit‡ degli Studi di Genova.
+Via Opera Pia 11A, I-16145, Genoa, Italy.
+<a href="mailto:activityrecognition@smartlab.ws">activityrecognition@smartlab.ws</a>
+<a href="http://www.smartlab.ws">www.smartlab.ws</a></p>
+
+<p>Davide Anguita, Alessandro Ghio, Luca Oneto, Xavier Parra and Jorge L. Reyes-Ortiz. Human Activity Recognition on Smartphones using a Multiclass Hardware-Friendly Support Vector Machine. International Workshop of Ambient Assisted Living (IWAAL 2012). Vitoria-Gasteiz, Spain. Dec 2012</p>
+</blockquote>
+
+<h2>Naming Strategy</h2>
+
+<p>The variable names in the original dataset have been altered to make them more readable and compiant with the R programming language standards.  The varialbes have had all symbols (&ldquo;-&rdquo;, &ldquo;(&rdquo;, and &ldquo;)&rdquo;) removed, and the words expanded to be more udnerstandable. Additionally, due to the length of the variables, &ldquo;camelCase&rdquo; is used to make them more readable.</p>
+
+<p>For instance, <em>tBodyAcc-mean()-Y</em> has been transformed into <em>tBodyAccelerometerMeanYAxis</em>.</p>
+
+<p>However, both the &ldquo;t&rdquo; and the &ldquo;f&rdquo; prefixes have been retained. A &ldquo;t&rdquo; prefix indicates that the variable is in the time domain, while an &ldquo;f&rdquo; indicates frequency domain, as obtainted through a Fast Fourier Transformation (FFT).</p>
+
+<h2>Detailed Description of Variables</h2>
+
+<table><thead>
+<tr>
+<th></th>
+<th>Variable Name</th>
+<th>Variable Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>Person</td>
+<td>The subject of the experimental measurements.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>ActivityDescription</td>
+<td>The activity measured as part of the data collection.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>tBodyAccelerometerMeanXAxis</td>
+<td>The mean value of the time domain signal as measured on the Accelerometer&#39;s X axis and corresponding to the body portion of the signal.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>tBodyAccelerometerMeanYAxis</td>
+<td>The mean value of the time domain signal as measured on the Accelerometer&#39;s Y axis and corresponding to the body portion of the signal.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>tBodyAccelerometerMeanZAxis</td>
+<td>The mean value of the time domain signal as measured on the Accelerometer&#39;s Z axis and corresponding to the body portion of the signal.</td>
+</tr>
+<tr>
+<td>6</td>
+<td>tGravityAccelerometerMeanXAxis</td>
+<td>The mean value of the time domain signal as measured on the Accelerometer&#39;s X axis and corresponding to the gravity portion of the signal.</td>
+</tr>
+<tr>
+<td>7</td>
+<td>tGravityAccelerometerMeanYAxis</td>
+<td>The mean value of the time domain signal as measured on the Accelerometer&#39;s Y axis and corresponding to the gravity portion of the signal.</td>
+</tr>
+<tr>
+<td>8</td>
+<td>tGravityAccelerometerMeanZAxis</td>
+<td>The mean value of the time domain signal as measured on the Accelerometer&#39;s Z axis and corresponding to the gravity portion of the signal.</td>
+</tr>
+<tr>
+<td>9</td>
+<td>tBodyAccelerometerJerkMeanXAxis</td>
+<td>The mean value of the time domain signal as measured on the Accelerometer&#39;s X axis and corresponding to the body linear acceleration and angular velocity of the body portion of the signal.</td>
+</tr>
+<tr>
+<td>10</td>
+<td>tBodyAccelerometerJerkMeanYAxis</td>
+<td>The mean value of the time domain signal as measured on the Accelerometer&#39;s Y axis and corresponding to the body linear acceleration and angular velocity of the body portion of the signal.</td>
+</tr>
+<tr>
+<td>11</td>
+<td>tBodyAccelerometerJerkMeanZAxis</td>
+<td>The mean value of the time domain signal as measured on the Accelerometer&#39;s Z axis and corresponding to the body linear acceleration and angular velocity of the body portion of the signal.</td>
+</tr>
+<tr>
+<td>12</td>
+<td>tBodyGyroscopeMeanXAxis</td>
+<td>The mean value of the time domain signal as measured on the Gyroscope&#39;s X axis and corresponding to the body portion of the signal.</td>
+</tr>
+<tr>
+<td>13</td>
+<td>tBodyGyroscopeMeanYAxis</td>
+<td>The mean value of the time domain signal as measured on the Gyroscope&#39;s Y axis and corresponding to the body portion of the signal.</td>
+</tr>
+<tr>
+<td>14</td>
+<td>tBodyGyroscopeMeanZAxis</td>
+<td>The mean value of the time domain signal as measured on the Gyroscope&#39;s Z axis and corresponding to the body portion of the signal.</td>
+</tr>
+<tr>
+<td>15</td>
+<td>tBodyGyroscopeJerkMeanXAxis</td>
+<td>The mean value of the time domain signal as measured on the Gyroscope&#39;s X axis and corresponding to the body linear acceleration and angular velocity of the body portion of the signal.</td>
+</tr>
+<tr>
+<td>16</td>
+<td>tBodyGyroscopeJerkMeanYAxis</td>
+<td>The mean value of the time domain signal as measured on the Gyroscope&#39;s Y axis and corresponding to the body linear acceleration and angular velocity of the body portion of the signal.</td>
+</tr>
+<tr>
+<td>17</td>
+<td>tBodyGyroscopeJerkMeanZAxis</td>
+<td>The mean value of the time domain signal as measured on the Gyroscope&#39;s Z axis and corresponding to the body linear acceleration and angular velocity of the body portion of the signal.</td>
+</tr>
+<tr>
+<td>18</td>
+<td>tBodyAccelerometerMagnitudeMean</td>
+<td>The mean value of the time domain signal as measured on the Accelerometer for the magnitude of the body portion of the signal.</td>
+</tr>
+<tr>
+<td>19</td>
+<td>tGravityAccelerometerMagnitudeMean</td>
+<td>The mean value of the time domain signal as measured on the Accelerometer for the magnitude of the gravity portion of the signal.</td>
+</tr>
+<tr>
+<td>20</td>
+<td>tBodyAccelerometerJerkMagnitudeMean</td>
+<td>The mean value of the time domain signal as measured on the Accelerometer corresponding to the magnitude body linear acceleration and angular velocity of the body portion of the signal.</td>
+</tr>
+<tr>
+<td>21</td>
+<td>tBodyGyroscopeMagnitudeMean</td>
+<td>The mean value of the time domain signal as measured on the Gyroscope for the magnitude of the body portion of the signal.</td>
+</tr>
+<tr>
+<td>22</td>
+<td>tBodyGyroscopeJerkMagnitudeMean</td>
+<td>The mean value of the time domain signal as measured on the Gyroscope corresponding to the magnitude body linear acceleration and angular velocity of the body portion of the signal.</td>
+</tr>
+<tr>
+<td>23</td>
+<td>fBodyAccelerometerMeanXAxis</td>
+<td>The mean value of the frequency domain signal as measured on the Accelerometer&#39;s X axis and corresponding to the body portion of the signal (as compiled using a Fast Fourier Transform function).</td>
+</tr>
+<tr>
+<td>24</td>
+<td>fBodyAccelerometerMeanYAxis</td>
+<td>The mean value of the frequency domain signal as measured on the Accelerometer&#39;s Y axis and corresponding to the body portion of the signal (as compiled using a Fast Fourier Transform function).</td>
+</tr>
+<tr>
+<td>25</td>
+<td>fBodyAccelerometerMeanZAxis</td>
+<td>The mean value of the frequency domain signal as measured on the Accelerometer&#39;s Z axis and corresponding to the body portion of the signal (as compiled using a Fast Fourier Transform function).</td>
+</tr>
+<tr>
+<td>26</td>
+<td>fBodyAccelerometerJerkMeanXAxis</td>
+<td>The mean value of the frequency domain signal as measured on the Accelerometer&#39;s X axis and corresponding to the body linear acceleration and angular velocity of the body portion of the signal (as compiled using a Fast Fourier Transform function).</td>
+</tr>
+<tr>
+<td>27</td>
+<td>fBodyAccelerometerJerkMeanYAxis</td>
+<td>The mean value of the frequency domain signal as measured on the Accelerometer&#39;s Y axis and corresponding to the body linear acceleration and angular velocity of the body portion of the signal (as compiled using a Fast Fourier Transform function).</td>
+</tr>
+<tr>
+<td>28</td>
+<td>fBodyAccelerometerJerkMeanZAxis</td>
+<td>The mean value of the frequency domain signal as measured on the Accelerometer&#39;s Z axis and corresponding to the body linear acceleration and angular velocity of the body portion of the signal (as compiled using a Fast Fourier Transform function).</td>
+</tr>
+<tr>
+<td>29</td>
+<td>fBodyGyroscopeMeanXAxis</td>
+<td>The mean value of the frequency domain signal as measured on the Gyroscope&#39;s X axis and corresponding to the body portion of the signal (as compiled using a Fast Fourier Transform function).</td>
+</tr>
+<tr>
+<td>30</td>
+<td>fBodyGyroscopeMeanYAxis</td>
+<td>The mean value of the frequency domain signal as measured on the Gyroscope&#39;s Y axis and corresponding to the body portion of the signal (as compiled using a Fast Fourier Transform function).</td>
+</tr>
+<tr>
+<td>31</td>
+<td>fBodyGyroscopeMeanZAxis</td>
+<td>The mean value of the frequency domain signal as measured on the Gyroscope&#39;s Z axis and corresponding to the body portion of the signal (as compiled using a Fast Fourier Transform function).</td>
+</tr>
+<tr>
+<td>32</td>
+<td>fBodyAccelerometerMagnitudeMean</td>
+<td>The mean value of the frequency domain signal as measured on the Accelerometer for the magnitude of the body portion of the signal (as compiled using a Fast Fourier Transform function).</td>
+</tr>
+<tr>
+<td>33</td>
+<td>fBodyBodyAccelerometerJerkMagnitudeMean</td>
+<td>The mean value of the frequency domain signal as measured on the Accelerometer corresponding to the magnitude body linear acceleration and angular velocity of the body portion of the signal (as compiled using a Fast Fourier Transform function).</td>
+</tr>
+<tr>
+<td>34</td>
+<td>fBodyBodyGyroscopeMagnitudeMean</td>
+<td>The mean value of the frequency domain signal as measured on the Gyroscope for the magnitude of the body portion of the signal (as compiled using a Fast Fourier Transform function).</td>
+</tr>
+<tr>
+<td>35</td>
+<td>fBodyBodyGyroscopeJerkMagnitudeMean</td>
+<td>The mean value of the frequency domain signal as measured on the Gyroscope corresponding to the magnitude body linear acceleration and angular velocity of the body portion of the signal  (as compiled using a Fast Fourier Transform function).</td>
+</tr>
+<tr>
+<td>36</td>
+<td>tBodyAccelerometerStandardDeviationXAxis</td>
+<td>The standard deviation value of the time domain signal as measured on the Accelerometer&#39;s X axis and corresponding to the body portion of the signal.</td>
+</tr>
+<tr>
+<td>37</td>
+<td>tBodyAccelerometerStandardDeviationYAxis</td>
+<td>The standard deviation value of the time domain signal as measured on the Accelerometer&#39;s Y axis and corresponding to the body portion of the signal.</td>
+</tr>
+<tr>
+<td>38</td>
+<td>tBodyAccelerometerStandardDeviationZAxis</td>
+<td>The standard deviation value of the time domain signal as measured on the Accelerometer&#39;s Z axis and corresponding to the body portion of the signal.</td>
+</tr>
+<tr>
+<td>39</td>
+<td>tGravityAccelerometerStandardDeviationXAxis</td>
+<td>The standard deviation value of the time domain signal as measured on the Accelerometer&#39;s X axis and corresponding to the gravity portion of the signal.</td>
+</tr>
+<tr>
+<td>40</td>
+<td>tGravityAccelerometerStandardDeviationYAxis</td>
+<td>The standard deviation value of the time domain signal as measured on the Accelerometer&#39;s Y axis and corresponding to the gravity portion of the signal.</td>
+</tr>
+<tr>
+<td>41</td>
+<td>tGravityAccelerometerStandardDeviationZAxis</td>
+<td>The standard deviation value of the time domain signal as measured on the Accelerometer&#39;s Z axis and corresponding to the gravity portion of the signal.</td>
+</tr>
+<tr>
+<td>42</td>
+<td>tBodyAccelerometerJerkStandardDeviationXAxis</td>
+<td>The standard deviation value of the time domain signal as measured on the Accelerometer&#39;s X axis and corresponding to the body linear acceleration and angular velocity of the body portion of the signal.</td>
+</tr>
+<tr>
+<td>43</td>
+<td>tBodyAccelerometerJerkStandardDeviationYAxis</td>
+<td>The standard deviation value of the time domain signal as measured on the Accelerometer&#39;s Y axis and corresponding to the body linear acceleration and angular velocity of the body portion of the signal.</td>
+</tr>
+<tr>
+<td>44</td>
+<td>tBodyAccelerometerJerkStandardDeviationZAxis</td>
+<td>The standard deviation value of the time domain signal as measured on the Accelerometer&#39;s Z axis and corresponding to the body linear acceleration and angular velocity of the body portion of the signal.</td>
+</tr>
+<tr>
+<td>45</td>
+<td>tBodyGyroscopeStandardDeviationXAxis</td>
+<td>The standard deviation value of the time domain signal as measured on the Gyroscope&#39;s X axis and corresponding to the body portion of the signal.</td>
+</tr>
+<tr>
+<td>46</td>
+<td>tBodyGyroscopeStandardDeviationYAxis</td>
+<td>The standard deviation value of the time domain signal as measured on the Gyroscope&#39;s Y axis and corresponding to the body portion of the signal.</td>
+</tr>
+<tr>
+<td>47</td>
+<td>tBodyGyroscopeStandardDeviationZAxis</td>
+<td>The standard deviation value of the time domain signal as measured on the Gyroscope&#39;s Z axis and corresponding to the body portion of the signal.</td>
+</tr>
+<tr>
+<td>48</td>
+<td>tBodyGyroscopeJerkStandardDeviationXAxis</td>
+<td>The standard deviation value of the time domain signal as measured on the Gyroscope&#39;s X axis and corresponding to the body linear acceleration and angular velocity of the body portion of the signal.</td>
+</tr>
+<tr>
+<td>49</td>
+<td>tBodyGyroscopeJerkStandardDeviationYAxis</td>
+<td>The standard deviation value of the time domain signal as measured on the Gyroscope&#39;s Y axis and corresponding to the body linear acceleration and angular velocity of the body portion of the signal.</td>
+</tr>
+<tr>
+<td>50</td>
+<td>tBodyGyroscopeJerkStandardDeviationZAxis</td>
+<td>The standard deviation value of the time domain signal as measured on the Gyroscope&#39;s Z axis and corresponding to the body linear acceleration and angular velocity of the body portion of the signal.</td>
+</tr>
+<tr>
+<td>51</td>
+<td>tBodyAccelerometerMagnitudeStandardDeviation</td>
+<td>The standard deviation value of the time domain signal as measured on the Accelerometer for the magnitude of the body portion of the signal.</td>
+</tr>
+<tr>
+<td>52</td>
+<td>tGravityAccelerometerMagnitudeStandardDeviation</td>
+<td>The standard deviation value of the time domain signal as measured on the Accelerometer for the magnitude of the gravity portion of the signal.</td>
+</tr>
+<tr>
+<td>53</td>
+<td>tBodyAccelerometerJerkMagnitudeStandardDeviation</td>
+<td>The standard deviation value of the time domain signal as measured on the Accelerometer corresponding to the magnitude body linear acceleration and angular velocity of the body portion of the signal.</td>
+</tr>
+<tr>
+<td>54</td>
+<td>tBodyGyroscopeMagnitudeStandardDeviation</td>
+<td>The standard deviation value of the time domain signal as measured on the Gyroscope for the magnitude of the body portion of the signal.</td>
+</tr>
+<tr>
+<td>55</td>
+<td>tBodyGyroscopeJerkMagnitudeStandardDeviation</td>
+<td>The standard deviation value of the time domain signal as measured on the Gyroscope corresponding to the magnitude body linear acceleration and angular velocity of the body portion of the signal.</td>
+</tr>
+<tr>
+<td>56</td>
+<td>fBodyAccelerometerStandardDeviationXAxis</td>
+<td>The standard deviation value of the frequency domain signal as measured on the Accelerometer&#39;s X axis and corresponding to the body portion of the signal (as compiled using a Fast Fourier Transform function).</td>
+</tr>
+<tr>
+<td>57</td>
+<td>fBodyAccelerometerStandardDeviationYAxis</td>
+<td>The standard deviation value of the frequency domain signal as measured on the Accelerometer&#39;s Y axis and corresponding to the body portion of the signal (as compiled using a Fast Fourier Transform function).</td>
+</tr>
+<tr>
+<td>58</td>
+<td>fBodyAccelerometerStandardDeviationZAxis</td>
+<td>The standard deviation value of the frequency domain signal as measured on the Accelerometer&#39;s Z axis and corresponding to the body portion of the signal (as compiled using a Fast Fourier Transform function).</td>
+</tr>
+<tr>
+<td>59</td>
+<td>fBodyAccelerometerJerkStandardDeviationXAxis</td>
+<td>The standard deviation value of the frequency domain signal as measured on the Accelerometer&#39;s X axis and corresponding to the body linear acceleration and angular velocity of the body portion of the signal (as compiled using a Fast Fourier Transform function).</td>
+</tr>
+<tr>
+<td>60</td>
+<td>fBodyAccelerometerJerkStandardDeviationYAxis</td>
+<td>The standard deviation value of the frequency domain signal as measured on the Accelerometer&#39;s Y axis and corresponding to the body linear acceleration and angular velocity of the body portion of the signal (as compiled using a Fast Fourier Transform function).</td>
+</tr>
+<tr>
+<td>61</td>
+<td>fBodyAccelerometerJerkStandardDeviationZAxis</td>
+<td>The standard deviation value of the frequency domain signal as measured on the Accelerometer&#39;s Z axis and corresponding to the body linear acceleration and angular velocity of the body portion of the signal (as compiled using a Fast Fourier Transform function).</td>
+</tr>
+<tr>
+<td>62</td>
+<td>fBodyGyroscopeStandardDeviationXAxis</td>
+<td>The standard deviation value of the frequency domain signal as measured on the Gyroscope&#39;s X axis and corresponding to the body portion of the signal (as compiled using a Fast Fourier Transform function).</td>
+</tr>
+<tr>
+<td>63</td>
+<td>fBodyGyroscopeStandardDeviationYAxis</td>
+<td>The standard deviation value of the frequency domain signal as measured on the Gyroscope&#39;s Y axis and corresponding to the body portion of the signal (as compiled using a Fast Fourier Transform function).</td>
+</tr>
+<tr>
+<td>64</td>
+<td>fBodyGyroscopeStandardDeviationZAxis</td>
+<td>The standard deviation value of the frequency domain signal as measured on the Gyroscope&#39;s Z axis and corresponding to the body portion of the signal (as compiled using a Fast Fourier Transform function).</td>
+</tr>
+<tr>
+<td>65</td>
+<td>fBodyAccelerometerMagnitudeStandardDeviation</td>
+<td>The standard deviation value of the frequency domain signal as measured on the Accelerometer for the magnitude of the body portion of the signal (as compiled using a Fast Fourier Transform function).</td>
+</tr>
+<tr>
+<td>66</td>
+<td>fBodyBodyAccelerometerJerkMagnitudeStandardDeviation</td>
+<td>The standard deviation value of the frequency domain signal as measured on the Accelerometer corresponding to the magnitude body linear acceleration and angular velocity of the body portion of the signal (as compiled using a Fast Fourier Transform function).</td>
+</tr>
+<tr>
+<td>67</td>
+<td>fBodyBodyGyroscopeMagnitudeStandardDeviation</td>
+<td>The standard deviation value of the frequency domain signal as measured on the Gyroscope for the magnitude of the body portion of the signal (as compiled using a Fast Fourier Transform function).</td>
+</tr>
+<tr>
+<td>68</td>
+<td>fBodyBodyGyroscopeJerkMagnitudeStandardDeviation</td>
+<td>The standard deviation value of the frequency domain signal as measured on the Gyroscope corresponding to the magnitude body linear acceleration and angular velocity of the body portion of the signal (as compiled using a Fast Fourier Transform function).</td>
+</tr>
+</tbody></table>
+
+<h2>Activity Labels</h2>
+
+<p>The subjects of the experiment participated in the activity listed below during the experiment:</p>
+
+<ol>
+<li>Walking</li>
+<li>Walking Upstairs</li>
+<li>Walking Downstairs</li>
+<li>Sitting</li>
+<li>Standing</li>
+<li>Laying Down</li>
+</ol>
+
+</body>
+
+</html>
+
